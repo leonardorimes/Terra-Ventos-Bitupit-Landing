@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template de Email - Terra Ventos</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f8f9fa;
+      }
+      .container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+      }
+      .header {
+        text-align: center;
+        border-bottom: 3px solid #3b82f6;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+      }
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #1e40af;
+        margin-bottom: 10px;
+      }
+      .subtitle {
+        color: #6b7280;
+        font-size: 14px;
+      }
+      .section {
+        margin-bottom: 25px;
+        padding: 20px;
+        background-color: #f8fafc;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #1e40af;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        padding: 8px 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-label {
+        font-weight: 600;
+        color: #374151;
+        min-width: 140px;
+      }
+      .info-value {
+        color: #6b7280;
+        flex: 1;
+      }
+      .highlight {
+        background-color: #dbeafe;
+        color: #1e40af;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      .footer {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 2px solid #e5e7eb;
+        text-align: center;
+        color: #6b7280;
+        font-size: 12px;
+      }
+      .badge {
+        display: inline-block;
+        background-color: #10b981;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .cta-button {
+        display: inline-block;
+        background-color: #3b82f6;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+      .timestamp {
+        background-color: #fef3c7;
+        color: #92400e;
+        padding: 10px;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="logo">🌊 TERRA VENTOS</div>
+        <div class="subtitle">Comunidade de Investidores & Lifestyle</div>
+      </div>
+
+      <!-- Badge de Nova Inscrição -->
+      <div style="text-align: center">
+        <span class="badge">🎯 NOVA INSCRIÇÃO RECEBIDA</span>
+      </div>
+
+      <!-- Timestamp -->
+      <div class="timestamp">📅 {{message}}</div>
+
+      <!-- Dados Pessoais -->
+      <div class="section">
+        <div class="section-title">👤 Dados Pessoais</div>
+        <div class="info-row">
+          <div class="info-label">Nome:</div>
+          <div class="info-value">
+            <span class="highlight">{{from_name}}</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Email:</div>
+          <div class="info-value">{{from_email}}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">WhatsApp:</div>
+          <div class="info-value">{{phone}}</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Localização:</div>
+          <div class="info-value">{{country}}</div>
+        </div>
+      </div>
+
+      <!-- Informações de Investimento -->
+      <div class="section">
+        <div class="section-title">💰 Perfil de Investimento</div>
+        <div class="info-row">
+          <div class="info-label">Faixa de Investimento:</div>
+          <div class="info-value">
+            <span class="highlight">{{investment_range}}</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Interesse Principal:</div>
+          <div class="info-value">{{main_interest}}</div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div style="text-align: center; margin: 30px 0">
+        <p style="color: #6b7280; margin-bottom: 15px">
+          <strong>🎯 Próximos Passos:</strong><br />
+          Entre em contato com o lead em até 24 horas para maximizar a
+          conversão.
+        </p>
+        <a href="https://wa.me/{{phone}}" class="cta-button">
+          📱 Contatar via WhatsApp
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p>
+          <strong>🌊 Terra Ventos</strong><br />
+          Comunidade de Investidores & Lifestyle<br />
+          📧 Este email foi enviado automaticamente através do formulário de
+          inscrição<br />
+          🔒 Dados protegidos conforme LGPD
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

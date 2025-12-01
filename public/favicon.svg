@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with brand color -->
+  <circle cx="16" cy="16" r="16" fill="#142431"/>
+  
+  <!-- Terra Ventos initials "TV" -->
+  <text x="16" y="22" font-family="Average Sans, Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#CCBDAA">TV</text>
+  
+  <!-- Wind wave accent -->
+  <path d="M6 12 Q10 8 14 12 Q18 16 22 12 Q26 8 30 12" stroke="#5D768C" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+</svg>

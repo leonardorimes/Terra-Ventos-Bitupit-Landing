@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nova Inscrição - Terra Ventos</title>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    "
+  >
+    <div
+      style="
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        border-left: 5px solid #3b82f6;
+      "
+    >
+      <!-- Header -->
+      <h1 style="color: #1e40af; text-align: center; margin-bottom: 10px">
+        🌊 Terra Ventos
+      </h1>
+      <p style="text-align: center; color: #6b7280; margin-bottom: 30px">
+        Comunidade de Investidores & Lifestyle
+      </p>
+
+      <!-- Nova Inscrição -->
+      <div
+        style="
+          background-color: #10b981;
+          color: white;
+          padding: 10px;
+          text-align: center;
+          border-radius: 5px;
+          margin-bottom: 20px;
+        "
+      >
+        <strong>🎯 NOVA INSCRIÇÃO RECEBIDA</strong>
+      </div>
+
+      <!-- Mensagem principal -->
+      <p style="font-size: 16px; margin-bottom: 20px">
+        Olá Leo,<br /><br />
+        Você tem uma nova inscrição de <strong>{{from_name}}</strong>:
+      </p>
+
+      <!-- Dados do lead -->
+      <div
+        style="
+          background-color: white;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        "
+      >
+        <h3 style="color: #1e40af; margin-top: 0">👤 Dados Pessoais:</h3>
+        <p><strong>Nome:</strong> {{from_name}}</p>
+        <p><strong>Email:</strong> {{from_email}}</p>
+        <p><strong>WhatsApp:</strong> {{phone}}</p>
+        <p><strong>Localização:</strong> {{country}}</p>
+
+        <h3 style="color: #1e40af">💰 Perfil de Investimento:</h3>
+        <p><strong>Faixa de Investimento:</strong> {{investment_range}}</p>
+        <p><strong>Interesse Principal:</strong> {{main_interest}}</p>
+      </div>
+
+      <!-- Detalhes adicionais -->
+      <div
+        style="
+          background-color: #fef3c7;
+          padding: 15px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+        "
+      >
+        <p style="margin: 0; color: #92400e">
+          <strong>📅 Detalhes:</strong><br />{{message}}
+        </p>
+      </div>
+
+      <!-- Call to Action -->
+      <div style="text-align: center; margin: 25px 0">
+        <p style="color: #6b7280; margin-bottom: 15px">
+          <strong>🎯 Próximo Passo:</strong> Entre em contato via WhatsApp em
+          até 24 horas
+        </p>
+        <a
+          href="https://wa.me/{{phone}}"
+          style="
+            background-color: #25d366;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+          "
+        >
+          📱 Contatar via WhatsApp
+        </a>
+      </div>
+
+      <!-- Footer -->
+      <div
+        style="
+          border-top: 2px solid #e5e7eb;
+          padding-top: 20px;
+          text-align: center;
+          color: #6b7280;
+          font-size: 12px;
+        "
+      >
+        <p>
+          <strong>🌊 Terra Ventos</strong><br />
+          Comunidade de Investidores & Lifestyle<br />
+          📧 Email enviado automaticamente pelo formulário de inscrição<br />
+          🔒 Dados protegidos conforme LGPD
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
