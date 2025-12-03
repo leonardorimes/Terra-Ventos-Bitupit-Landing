@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import Image from "next/image";
+import ImageSlider from "./ImageSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AnalyzingOpportunitySection() {
@@ -28,7 +28,7 @@ export default function AnalyzingOpportunitySection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Lado Esquerdo - Foto da Paisagem */}
+          {/* Lado Esquerdo - Slider de Fotos */}
           <motion.div
             className="relative order-2 lg:order-1"
             initial={{ opacity: 0, x: -50 }}
@@ -40,16 +40,18 @@ export default function AnalyzingOpportunitySection() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border-2 border-accent-200/50">
-              <Image
-                src="/images/bitupita/01.jpeg"
+            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+              <ImageSlider
+                images={[
+                  "/images/bitupita/01.jpeg",
+                  "/images/bitupita/DJI_20251019210520_0107_D.jpg",
+                  "/images/bitupita/DJI_20251019210747_0114_D.jpg",
+                  "/images/bitupita/DSC06843.jpg",
+                ]}
                 alt="Bitupitá - Paisagem costeira"
-                fill
-                className="object-cover"
-                quality={90}
+                autoPlay={true}
+                autoPlayInterval={50000}
               />
-              {/* Overlay sutil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
             </div>
           </motion.div>
 

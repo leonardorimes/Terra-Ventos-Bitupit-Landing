@@ -2,18 +2,18 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+// import Navbar from "@/components/Navbar";
+// import Footer from "@/components/Footer";
 import SignupModal from "@/components/SignupModal";
 import DynamicMeta from "@/components/DynamicMeta";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import OpportunityHero from "@/components/opportunity/OpportunityHero";
-import BalanceSection from "@/components/opportunity/BalanceSection";
-import InvestmentOptionsSection from "@/components/opportunity/InvestmentOptionsSection";
-import ValuationSection from "@/components/opportunity/ValuationSection";
-import AnalysisSection from "@/components/opportunity/AnalysisSection";
-import AboutBitupitaSection from "@/components/opportunity/AboutBitupitaSection";
-import SignupSection from "@/components/SignupSection";
+// import OpportunityHero from "@/components/opportunity/OpportunityHero";
+// import BalanceSection from "@/components/opportunity/BalanceSection";
+// import InvestmentOptionsSection from "@/components/opportunity/InvestmentOptionsSection";
+// import ValuationSection from "@/components/opportunity/ValuationSection";
+// import AnalysisSection from "@/components/opportunity/AnalysisSection";
+// import AboutBitupitaSection from "@/components/opportunity/AboutBitupitaSection";
+// import SignupSection from "@/components/SignupSection";
 
 export default function BitupitaPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,15 +29,15 @@ export default function BitupitaPage() {
       transition={{ duration: 0.5 }}
     >
       <DynamicMeta />
-      <Navbar onContactClick={openModal} />
-      <OpportunityHero onContactClick={openModal} />
-      <BalanceSection />
-      <InvestmentOptionsSection />
-      <ValuationSection />
-      <AnalysisSection />
-      <AboutBitupitaSection />
-      <SignupSection />
-      <Footer />
+      {/* <Navbar onContactClick={openModal} /> */}
+      {/* <OpportunityHero onContactClick={openModal} /> */}
+      {/* <BalanceSection /> */}
+      {/* <InvestmentOptionsSection /> */}
+      {/* <ValuationSection /> */}
+      {/* <AnalysisSection /> */}
+      {/* <AboutBitupitaSection /> */}
+      {/* <SignupSection /> */}
+      {/* <Footer /> */}
 
       <SignupModal isOpen={isModalOpen} onClose={closeModal} />
       <WhatsAppButton />

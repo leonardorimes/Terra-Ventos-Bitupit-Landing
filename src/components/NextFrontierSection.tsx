@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import Image from "next/image";
+import ImageSlider from "./ImageSlider";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function NextFrontierSection() {
@@ -54,7 +54,7 @@ export default function NextFrontierSection() {
             </div>
           </motion.div>
 
-          {/* Lado Direito - Foto da Praia */}
+          {/* Lado Direito - Slider de Fotos */}
           <motion.div
             className="relative order-1 lg:order-2 mt-8 md:mt-12 lg:mt-0"
             initial={{ opacity: 0, x: 50 }}
@@ -66,16 +66,18 @@ export default function NextFrontierSection() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border-2 border-accent-200/50">
-              <Image
-                src="/images/bitupita/01.jpeg"
+            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+              <ImageSlider
+                images={[
+                  "/images/bitupita/DJI_20251019214527_0135_D.jpg",
+                  "/images/bitupita/DJI_20251019214529_0136_D.jpg",
+                  "/images/bitupita/DSC06845.jpg",
+                  "/images/bitupita/DSC06869.jpg",
+                ]}
                 alt="Bitupitá - Praia paradisíaca"
-                fill
-                className="object-cover"
-                quality={90}
+                autoPlay={true}
+                autoPlayInterval={50000}
               />
-              {/* Overlay sutil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent"></div>
             </div>
           </motion.div>
         </div>
