@@ -92,6 +92,8 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
+  /* Garantir que apenas o html tenha scroll */
+  position: relative;
 }
 
 /* Body não deve ter scroll próprio - apenas o html tem */
@@ -101,19 +103,22 @@ body {
   font-family: "Average Sans", "Inter", system-ui, sans-serif;
   font-weight: 100;
   overflow-x: hidden;
-  overflow-y: visible !important; /* Forçar sem scroll próprio */
+  overflow-y: hidden !important; /* Sem scroll próprio - apenas o html tem */
   margin: 0;
   padding: 0;
   position: relative;
   height: auto !important; /* Não fixar altura */
   min-height: 100%;
+  /* Garantir que o body não crie scroll adicional */
+  max-width: 100vw;
 }
 
 /* Garantir que elementos principais não bloqueiem scroll */
 main {
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden; /* Sem scroll próprio - apenas o html tem */
   width: 100%;
+  max-width: 100vw;
   position: relative;
 }
 
@@ -154,10 +159,11 @@ nav {
 #__next,
 [data-nextjs-scroll-focus-boundary] {
   overflow-x: hidden !important;
-  overflow-y: visible !important;
+  overflow-y: hidden !important; /* Sem scroll próprio */
   position: relative;
   height: auto !important;
   min-height: 100%;
+  max-width: 100vw;
 }
 
 @layer utilities {

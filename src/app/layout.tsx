@@ -46,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.className} w-full max-w-full overflow-x-hidden`}
+        className={`${inter.className} w-full max-w-full overflow-x-hidden overflow-y-hidden`}
       >
         <LanguageProvider>{children}</LanguageProvider>
       </body>
