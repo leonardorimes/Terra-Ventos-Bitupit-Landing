@@ -2,13 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Scroll suave personalizado */
+/* Scroll suave personalizado - apenas no html */
 html {
-  scroll-behavior: smooth;
-}
-
-/* Melhorar a suavidade do scroll */
-* {
   scroll-behavior: smooth;
 }
 
@@ -86,16 +81,79 @@ html {
   }
 }
 
+/* ============================================
+   CONTROLE DE SCROLL - APENAS UMA BARRA
+   ============================================ */
+
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
   font-family: "Average Sans", "Inter", system-ui, sans-serif;
   font-weight: 100;
   overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  position: relative;
 }
 
-html {
+/* Garantir que elementos principais não bloqueiem scroll */
+main {
   overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  position: relative;
+}
+
+/* Garantir que sections não bloqueiem scroll */
+section {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Hero section - sem regras especiais de altura fixa */
+section[class*="Hero"] {
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Hero com vídeo de fundo - garantir altura total da viewport */
+section[class*="Hero"]:has(.vimeo-video-container) {
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/* Garantir que elementos comuns não criem scroll próprio */
+article,
+aside,
+header,
+footer,
+nav {
+  overflow-y: visible !important; /* Elementos semânticos não têm scroll próprio */
+}
+
+/* EXCEÇÕES: Containers específicos que precisam de overflow hidden (já definidos acima) */
+
+/* Garantir que containers do Next.js não bloqueiem scroll */
+#__next,
+[data-nextjs-scroll-focus-boundary] {
+  overflow-x: hidden;
+  overflow-y: visible;
+  height: 100%;
+  position: relative;
 }
 
 @layer utilities {
@@ -161,10 +219,7 @@ html {
   background: #a8a8a8;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling - já definido acima, removido duplicação */
 
 /* CSS para eliminar tarjas pretas do YouTube Player */
 #youtube-player {
@@ -233,5 +288,78 @@ html {
     height: 300vh !important;
     min-width: 300vw !important;
     min-height: 300vh !important;
+  }
+}
+
+/* Esconder TODOS os elementos visíveis do Vimeo Player */
+/* Os parâmetros da URL já escondem todos os elementos */
+
+/* Os parâmetros da URL já escondem todos os elementos:
+   - title=0 (sem título)
+   - byline=0 (sem informação do criador)
+   - portrait=0 (sem foto do criador)
+   - badge=0 (sem badge do Vimeo)
+   - controls=0 (sem controles)
+   - autoplay=1 (reprodução automática)
+   - loop=1 (repetição)
+   - muted=1 (sem som)
+*/
+
+/* CSS para vídeo Vimeo fullscreen - ocupar todo o fundo sem tarjas pretas */
+.vimeo-video-container {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+/* Iframe do Vimeo - técnica object-fit: cover para eliminar tarjas pretas */
+.vimeo-video-iframe {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  border: none !important;
+  z-index: 0 !important;
+  /* Usar max() para escolher a maior dimensão necessária (equivalente a object-fit: cover) */
+  width: max(100vw, 177.78vh) !important;
+  height: max(100vh, 56.25vw) !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+}
+
+/* Desktop: ajustar para container mais alto */
+@media (min-width: 1024px) {
+  .vimeo-video-iframe {
+    width: 177.78vh !important; /* Proporção 16:9 baseada na altura do viewport */
+    height: 100vh !important;
+    max-height: 100vh !important;
+    min-width: calc(
+      55vw * 1.8
+    ) !important; /* Garantir que cobre a largura do container */
+    overflow: hidden !important;
+  }
+
+  section[class*="Hero"] .vimeo-video-container {
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Mobile: ajustar para container mais largo */
+@media (max-width: 1023px) {
+  .vimeo-video-iframe {
+    width: 100% !important;
+    height: 56.25vw !important; /* Proporção 16:9 baseada na largura do viewport */
+    min-height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  section[class*="Hero"] .vimeo-video-container {
+    max-height: 100% !important;
+    overflow: hidden !important;
+    height: 100% !important;
   }
 }

@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <motion.main
-      className="min-h-screen w-full max-w-full overflow-x-hidden"
+      className="w-full max-w-full overflow-x-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
