@@ -29,7 +29,7 @@ export default function NextFrontierSection() {
               ease: [0.25, 0.46, 0.45, 0.94],
             }}
           >
-            <h2 
+            <h2
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-8 lg:mb-12 leading-tight text-center lg:text-left px-2 break-words"
               style={{
                 fontFamily: '"Avenir Light", "Avenir", sans-serif',
@@ -77,8 +77,8 @@ export default function NextFrontierSection() {
                 images={[
                   "/images/bitupita/DJI_20251019210747_0114_D.jpg",
                   "/images/bitupita/DJI_20251019225828_0161_D.jpg",
-                  "/images/bitupita/DSC06845.jpg",
-                  "/images/bitupita/DSC06869.jpg",
+                  "/images/bitupita/DJI_20251019225830_0162_D.jpg",
+                  "/images/bitupita/DJI_20251019214529_0136_D.jpg",
                 ]}
                 alt="Bitupitá - Praia paradisíaca"
                 autoPlay={true}
@@ -92,4 +92,3 @@ export default function NextFrontierSection() {
     </AnimatedSection>
   );
 }
-
