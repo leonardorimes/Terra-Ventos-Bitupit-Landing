@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import FixedLanguageSelector from "@/components/FixedLanguageSelector";
 import Footer from "@/components/Footer";
 import FichaPropostaForm from "@/components/FichaPropostaForm";
@@ -57,7 +56,6 @@ export default function FichaPropostaPage() {
       </section>
 
       <Footer />
-      <WhatsAppButton />
     </motion.main>
   );
 }
