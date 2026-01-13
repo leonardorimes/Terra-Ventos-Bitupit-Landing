@@ -77,6 +77,41 @@ export default function ParadiseAwaitsSection() {
             </div>
           </motion.a>
 
+          {/* Link para Ficha de Proposta */}
+          <motion.a
+            href="/ficha-proposta"
+            className="bg-accent-500 hover:bg-accent-600 text-white rounded-xl p-6 md:p-8 shadow-lg border border-accent-400/30 mb-8 block cursor-pointer hover:shadow-xl hover:scale-[1.02] transition-all duration-300 group max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            whileHover={{ y: -5 }}
+          >
+            <div className="flex items-center justify-center gap-4">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              <div className="text-center">
+                <p className="text-lg md:text-xl font-semibold">
+                  Preencher Ficha de Proposta
+                </p>
+                <p className="text-sm md:text-base opacity-90">
+                  Bitupitá Villas
+                </p>
+              </div>
+            </div>
+          </motion.a>
+
           {/* Informações de Contato */}
           <motion.div
             className="mb-8"
