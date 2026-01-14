@@ -44,8 +44,11 @@ Cole o seguinte código HTML no editor do template:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     /* Reset e configurações base */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
       color: #333;
       max-width: 600px;
@@ -54,6 +57,8 @@ Cole o seguinte código HTML no editor do template:
       background-color: #f5f5f5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
     }
     
     /* Container principal */
@@ -110,13 +115,13 @@ Cole o seguinte código HTML no editor do template:
       border-bottom: 2px solid #B2A28E;
     }
     
-    /* Field */
+    /* Field - Estrutura simples para melhor compatibilidade mobile */
     .field {
       margin-bottom: 12px;
       padding: 10px 0;
       border-bottom: 1px solid #eee;
-      display: flex;
-      flex-wrap: wrap;
+      display: block;
+      width: 100%;
     }
     .field:last-child {
       border-bottom: none;
@@ -126,16 +131,23 @@ Cole o seguinte código HTML no editor do template:
     .field-label {
       font-weight: bold;
       color: #666;
-      min-width: 140px;
-      margin-bottom: 4px;
+      display: block;
+      margin-bottom: 6px;
       font-size: 14px;
+      width: 100%;
     }
     
     .field-value {
       color: #333;
-      flex: 1;
+      display: block;
       word-break: break-word;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
       font-size: 14px;
+      width: 100%;
+      padding-left: 0;
+      white-space: normal;
+      line-height: 1.6;
     }
     
     /* Footer */
@@ -156,6 +168,7 @@ Cole o seguinte código HTML no editor do template:
     @media only screen and (max-width: 600px) {
       body {
         padding: 0;
+        font-size: 16px;
       }
       
       .email-container {
@@ -168,49 +181,74 @@ Cole o seguinte código HTML no editor do template:
       }
       
       .header h1 {
-        font-size: 24px;
+        font-size: 22px;
+        line-height: 1.2;
       }
       
       .header p {
         font-size: 14px;
+        line-height: 1.4;
       }
       
       .content {
-        padding: 15px;
+        padding: 15px 10px;
       }
       
       .section {
-        padding: 15px;
+        padding: 15px 12px;
         margin-bottom: 15px;
         border-radius: 6px;
       }
       
       .section-title {
-        font-size: 16px;
+        font-size: 15px;
         margin-bottom: 12px;
+        line-height: 1.4;
+        word-break: break-word;
       }
       
       .field {
-        flex-direction: column;
-        padding: 8px 0;
-        margin-bottom: 10px;
+        display: block !important;
+        padding: 12px 0;
+        margin-bottom: 12px;
+        border-bottom: 1px solid #ddd;
+        width: 100% !important;
+        table-layout: auto !important;
       }
       
       .field-label {
-        min-width: 100%;
-        margin-bottom: 4px;
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 6px;
         font-size: 13px;
+        font-weight: bold;
+        color: #666;
+        padding-right: 0 !important;
+        padding-bottom: 4px;
       }
       
       .field-value {
-        width: 100%;
-        font-size: 14px;
-        padding-left: 0;
+        display: inline !important;
+        width: 100% !important;
+        font-size: 15px !important;
+        color: #333 !important;
+        padding-left: 0 !important;
+        word-break: normal !important;
+        word-wrap: normal !important;
+        overflow-wrap: normal !important;
+        line-height: 1.6 !important;
+        white-space: normal !important;
+        -webkit-hyphens: none !important;
+        -moz-hyphens: none !important;
+        hyphens: none !important;
+        max-width: 100% !important;
+        letter-spacing: normal !important;
       }
       
       .footer {
-        padding: 15px;
+        padding: 15px 10px;
         font-size: 11px;
+        line-height: 1.6;
       }
     }
     

@@ -312,7 +312,18 @@ Data/Hora: ${new Date().toLocaleString("pt-BR")}
 
       setSubmitStatus("success");
 
-      // Limpar formulário após sucesso
+      // Scroll suave para a mensagem de sucesso
+      setTimeout(() => {
+        const successMessage = document.querySelector('[data-success-message]');
+        if (successMessage) {
+          successMessage.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }, 300);
+
+      // Limpar formulário após sucesso (mensagem fica visível por 8 segundos)
       setTimeout(() => {
         setSubmitStatus("idle");
         setErrors({});
@@ -339,7 +350,7 @@ Data/Hora: ${new Date().toLocaleString("pt-BR")}
         if (onSubmit) {
           onSubmit();
         }
-      }, 3000);
+      }, 8000);
     } catch (error) {
       console.error("Erro ao enviar formulário:", error);
       setSubmitStatus("error");
@@ -393,25 +404,50 @@ Data/Hora: ${new Date().toLocaleString("pt-BR")}
         {/* Status Messages */}
         {submitStatus === "success" && (
           <motion.div
-            className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            data-success-message
+            className="mb-8 p-8 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 rounded-xl shadow-lg"
+            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 300,
+              damping: 20,
+              duration: 0.6
+            }}
           >
-            <div className="flex items-center">
-              <svg
-                className="w-5 h-5 text-green-500 mr-2"
-                fill="currentColor"
-                viewBox="0 0 20 20"
+            <div className="flex flex-col items-center text-center">
+              <motion.div
+                className="mb-4"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ 
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 10,
+                  delay: 0.2
+                }}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <p className="text-green-700 font-medium">
-                Formulário enviado com sucesso! Entraremos em contato em breve.
+                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                  <svg
+                    className="w-12 h-12 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+              </motion.div>
+              <h3 className="text-2xl md:text-3xl font-bold text-green-800 mb-2">
+                ✓ Proposta Enviada com Sucesso!
+              </h3>
+              <p className="text-lg text-green-700 font-medium">
+                Nossa equipe entrará em contato em breve.
               </p>
             </div>
           </motion.div>
