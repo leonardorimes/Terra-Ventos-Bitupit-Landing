@@ -10,8 +10,9 @@ import FixedLanguageSelector from "@/components/FixedLanguageSelector";
 import Hero from "@/components/Hero";
 import PromoBanner from "@/components/PromoBanner";
 import ProblemSection from "@/components/ProblemSection";
-import InvestmentOptionsSection from "@/components/InvestmentOptionsSection";
-import TechnicalSpecsSection from "@/components/TechnicalSpecsSection";
+// import InvestmentOptionsSection from "@/components/InvestmentOptionsSection";
+// import TechnicalSpecsSection from "@/components/TechnicalSpecsSection";
+import LotesBitupitaSection from "@/components/LotesBitupitaSection";
 import NextFrontierSection from "@/components/NextFrontierSection";
 import AnalyzingOpportunitySection from "@/components/AnalyzingOpportunitySection";
 import KnowBitupitaSection from "@/components/KnowBitupitaSection";
@@ -37,8 +38,9 @@ export default function Home() {
       <Hero onContactClick={openModal} />
       <PromoBanner />
       <ProblemSection />
-      <InvestmentOptionsSection />
-      <TechnicalSpecsSection />
+      {/* <InvestmentOptionsSection /> */}
+      {/* <TechnicalSpecsSection /> */}
+      <LotesBitupitaSection />
       <KnowBitupitaSection />
       <NextFrontierSection />
       <AnalyzingOpportunitySection />
