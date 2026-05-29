@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import Logo from "./Logo";
 
 interface FichaPropostaFormProps {
@@ -240,7 +240,8 @@ export default function FichaPropostaForm({
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Configurar EmailJS
+    // Configurar EmailJS (comentado temporariamente)
+    /*
     const serviceId = "gmailMessage";
     const templateId = "template_n6gdvi8";
     const publicKey = "qBifyS-ncgTggC0Co";
@@ -305,10 +306,27 @@ DADOS DO COMPRADOR:
 Data/Hora: ${new Date().toLocaleString("pt-BR")}
       `.trim(),
     };
+    */
 
     try {
-      // Enviar email usando EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      // Enviar email usando EmailJS (comentado temporariamente)
+      // await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      // Enviar dados para o CRM (Brevo)
+      try {
+        const brevoRes = await fetch("/api/brevo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (!brevoRes.ok) {
+          console.error("Erro na resposta do Brevo CRM:", await brevoRes.text());
+        }
+      } catch (crmError) {
+        console.error("Erro ao conectar com a API do Brevo CRM:", crmError);
+      }
 
       setSubmitStatus("success");
 

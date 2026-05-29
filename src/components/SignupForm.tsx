@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 
 interface SignupFormProps {
   onSubmit?: () => void;
@@ -51,7 +51,8 @@ export default function SignupForm({
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Configurar EmailJS
+    // Configurar EmailJS (comentado temporariamente)
+    /*
     const serviceId = "gmailMessage";
     const templateId = "template_4m13d9p";
     const publicKey = "qBifyS-ncgTggC0Co";
@@ -81,10 +82,34 @@ Informações de Investimento:
 Data/Hora: ${new Date().toLocaleString("pt-BR")}
         `.trim(),
     };
+    */
 
     try {
-      // Enviar email usando EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      // Enviar email usando EmailJS (comentado temporariamente)
+      // await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      // Enviar dados para o CRM (Brevo)
+      try {
+        const brevoRes = await fetch("/api/brevo", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: formData.nome,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            paisEstado: formData.paisEstado,
+            faixaInvestimento: formData.faixaInvestimento,
+            interessePrincipal: formData.interessePrincipal,
+          }),
+        });
+        if (!brevoRes.ok) {
+          console.error("Erro na resposta do Brevo CRM:", await brevoRes.text());
+        }
+      } catch (crmError) {
+        console.error("Erro ao conectar com a API do Brevo CRM:", crmError);
+      }
 
       setSubmitStatus("success");
 
